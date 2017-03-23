@@ -30,10 +30,45 @@ Render components into rails views
 
 Mount webpack bundled components
 
-    import { mountComponents } from './react-rails-ujs';
+    import { mountComponents } from 'react-rails-ujs';
     
     import { Message } from './components/Message';
     
     mountComponents({
       Message,
     });
+
+## Usage with React Hot Reload
+
+    import React from 'react';
+    import { AppContainer } from 'react-hot-loader';
+    import { mountComponents } from 'react-rails-ujs';
+
+    import { Message } from './components/Message';
+
+    const render = (component, props) => (
+      <AppContainer><component {...props}/></AppContainer>
+    );
+
+    mountComponents({
+      Message,
+    }, module.hot ? { render } : {});
+
+## Usage with Redux
+
+    import React from 'react';
+    import { Provider } from 'react-redux'
+    import { mountComponents } from 'react-rails-ujs';
+
+    import createStore from './store/createStore';
+    import { Message } from './components/Message';
+
+    const store = createStore();
+
+    const render = (component, props) => (
+      <Provider store={store}><component {...props}/></Provider>
+    );
+
+    mountComponents({
+      Message,
+    }, { render });
