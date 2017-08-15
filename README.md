@@ -46,8 +46,8 @@ Mount webpack bundled components
 
     import { Message } from './components/Message';
 
-    const render = (component, props) => (
-      <AppContainer><component {...props}/></AppContainer>
+    const render = (Component, props) => (
+      <AppContainer><Component {...props}/></AppContainer>
     );
 
     mountComponents({
@@ -65,8 +65,8 @@ Mount webpack bundled components
 
     const store = createStore();
 
-    const render = (component, props) => (
-      <Provider store={store}><component {...props}/></Provider>
+    const render = (Component, props) => (
+      <Provider store={store}><Component {...props}/></Provider>
     );
 
     mountComponents({
