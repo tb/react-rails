@@ -6,6 +6,8 @@
 This npm package is replacement for [react-rails](https://github.com/reactjs/react-rails)
 when assets pipeline is completely disabled and replaced with webpack bundles.
 
+Created by [React Developers @ Selleo](https://selleo.com/react-expert-developers-team)
+
 ## Install
 
     npm i --save react-rails-ujs
